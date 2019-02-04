@@ -37,6 +37,12 @@ If all the configuration is done, the application is ready to work and transmit 
 
 Keep Secure...
 
+## Advanced Methods
+
+If you are interested in more advanced modification of the SSL/TLS connection or just want to know more about the details, the ESP8266 project contains many [examples](https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WiFi/examples) about SSL connection handling. Especially the BearSSL projects are relevant for this topic and the 'BearSSL_Validation' contains a good discription of all the possible methods. Furthermore, it also discusses to deacrease the security level in favor of a longer battery life.
+
+So have fun improving and keep secure...
+
 ## Comments
 
 If you find any bugs or improvements don't hasitate to open an issue and/or to fork the repo.
