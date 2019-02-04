@@ -132,11 +132,12 @@ void setup() {
 
 void loop() {
   // start mqtt connection
-  trc(F("MQTT connection..."));
+  trc(F("Connecting to MQTT borker..."));
   if (client.connect(Gateway_Name, mqtt_user, mqtt_pass, will_Topic, will_QoS, will_Retain, will_Message)) {
     // successfully connected to mqtt broker
-    trc(F("Connected to broker"));
+    trc(F("Connection established!"));
     // publish sth.
+    trc(F("Do the MQTT stuff"));
     client.publish("esp8266/online", "1");
     // disconnect from broker again
     client.disconnect();
