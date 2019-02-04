@@ -6,7 +6,7 @@ IoT applications very neatly fit into our daily lifes and simplify many tasks. H
 
 The application has been developed to run on the ESP8266. Other devices might also work with the implementation, however, keep in mind that security comes on the cost of computational power and ram required. Thus, it's doubtful that the encryption can be done by weaker devices.
 
-The implementation relies on the standard ESP8266 framework that comes with a WifiClientSecure implementation (using BearSSL) and general wifi features. Furthermore, the PubSubClient library is used for mqtt actions. It can be easily installed in the Arduino-IDE using the library manager.
+The implementation relies on the standard ESP8266 framework (see installation procedure [here](https://dzone.com/articles/programming-the-esp8266-with-the-arduino-ide-in-3)) that comes with a WifiClientSecure implementation (using BearSSL) and general wifi features. Furthermore, the PubSubClient library is used for mqtt actions. The latter can be easily installed in the Arduino-IDE using the library manager.
 
 ## Getting Started
 
