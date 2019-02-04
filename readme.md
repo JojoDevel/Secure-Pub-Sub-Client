@@ -1,6 +1,7 @@
-#SecurePubSub
+Secure PubSub Client
+=================
 
-IoT applications very neatly fit into our daily lifes and simplify many tasks. However, many IoT applications neglect the security favoring great flexibility and fast progress. However, secure connections and reliable messages should be key ingredient for all the IoT ideas out there. Thus, this project gives a short example on how to implment an mqtts client using SSL/TLS secured connections and verification of the certificate chain on the ESP8266 device. This allows trustworthy communication and abandons significant security leaks.
+IoT applications very neatly fit into our daily lifes and simplify many tasks. However, many IoT applications neglect the security favoring great flexibility and fast progress. However, secure connections and reliable messages should be key ingredient for all the IoT ideas out there. Thus, this project gives a short example on how to implment an mqtts client using SSL/TLS secured connections and verification of the server's certificate chain on the ESP8266 device. This allows trustworthy communication and abandons significant security leaks.
 
 ## Prerequisites
 
