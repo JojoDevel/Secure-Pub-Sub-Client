@@ -91,7 +91,7 @@ void setClock() {
 
 
 void setup() {
-  Serial.begin(SERIAL_BAUD); // in the case of sonoff RF Bridge the link to the RF emitter/receiver is made by serial and need TX/RX
+  Serial.begin(SERIAL_BAUD);
   Serial.println();
   Serial.println();
 
@@ -138,6 +138,7 @@ void loop() {
     trc(F("Connection established!"));
     // publish sth.
     trc(F("Do the MQTT stuff"));
+    // TODO do your own stuff here if you only want to publish
     client.publish("esp8266/online", "1");
     // disconnect from broker again
     client.disconnect();
