@@ -1,7 +1,7 @@
 Secure PubSub Client
 =================
 
-IoT applications very neatly fit into our daily lifes and simplify many tasks. However, many IoT applications neglect the security favoring great flexibility and fast progress. However, secure connections and reliable messages should be key ingredient for all the IoT ideas out there. Thus, this project gives a short example on how to implment an mqtts client using SSL/TLS secured connections and verification of the server's certificate chain on the ESP8266 device. This allows trustworthy communication and abandons significant security leaks.
+IoT applications very neatly fit into our daily lifes and simplify many tasks. However, many IoT applications neglect the security in favor great flexibility and fast development progress. Nonetheless, secure connections and reliable messages should be key ingredient for all the IoT ideas out there. As good examples are rare, this project gives a short example on how to implment an mqtts client using SSL/TLS secured connections and verification of the server's certificate chain on the ESP8266 device. This allows trustworthy communication and abandons significant security leaks.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ The implementation relies on the standard ESP8266 framework (see installation pr
 
 ## Getting Started
 
-Before running the script on your device the standard configuration has to be adapted. Hence, the code contains configuration block.
+Before running the script on your device the standard configuration has to be adapted. Hence, the code contains a configuration block.
 
 ```
 // your wifi credentials
@@ -29,9 +29,9 @@ char mqtt_pass[20] = "your-passwd"; // not compulsory only if your broker needs 
 static const char digicert[] PROGMEM = ...
 ```
 
-The 'wifi_ssid' and 'wifi_pass' strings allow the application to connect to your local wifi. 'mqtt_server' and 'port' define the domain name and the port the target mqtt broker is running. Furthermore, for authentication of the client, the 'mqtt_user' and 'mqtt_pass' define the user credentials. Due to the ssl/tls encryption of the connection providing the authentication finally makes sense. Compared to that, in an unencrypted channel the username and password are transfered as plain text and, thus, do not really increase security.
+The 'wifi_ssid' and 'wifi_pass' strings allow the application to connect to your local wifi. 'mqtt_server' and 'port' define the domain name and the port the target mqtt broker is running. Furthermore, for authentication of the client, the 'mqtt_user' and 'mqtt_pass' define the user credentials. Due to the ssl/tls encryption of the connection providing the authentication finally makes sense. Compared to that, in an unencrypted connection, the username and password are transfered as plain text and, thus, do not really increase security.
 
-The final task for the configuration is setting the correct public root ca certificate. This step guarantees that the client always communicates with !your! server and significantly complicates man-in-the-middle attacks. However, for the client to authenticate the server, it must be able to verify the certificate. If you want to run your own mqtt broker you need to provide a certificate that is trustworthy. To generate this trust, the certificate is signed by some authority that is trustworthy (e.g. governments). This leads to a certificate chain such that only one especially trusty root certificate is required to show the authenticity of the mqtt broker (also all intermediate certificates can be used for verification purposes. However, keep in mind that intermediate certificates do expire faster than root certificates.). This certificate should be provided by your broker cloud service or, if you run your own broker, is the public key of your key-pair (In the case that you use self-signed certificates you have to immediately trust your certificate). These keys can be provided in various formats. For the application to work, the public key of the root certificate must be in the base64 format. (Hint: this certificate can also be exported by many web browsers like chrome and firefox)
+The final task for the configuration is setting the correct public root ca certificate. This step guarantees that the client always communicates with your server and significantly complicates man-in-the-middle attacks. However, for the client to authenticate the server, it must be able to verify the certificate. If you want to run your own mqtt broker you need to provide a certificate that is trustworthy. To generate this trust, the certificate is signed by some certificate authority (CA) that is trustworthy (e.g. governments). This leads to a certificate chain such that only one especially trusty root certificate is required to show the authenticity of the mqtt broker (also all intermediate certificates can be used for verification purposes. However, keep in mind that intermediate certificates do expire faster than root certificates.). This certificate should be provided by your broker cloud service or, in the case you run your own broker, is the public key of your key-pair (In the case that you use self-signed certificates you have to directly trust your certificate as it is not part of a chain). These keys can be provided in various formats. For the application to work, the public key of the root certificate must be in the base64 format. Hint: this certificate can also be exported by many web browsers like chrome and firefox. Just update the 'digicert' variable. It currently contains the 'ISRG Root X1' certificate that is also used by Let's encrypt.
 
 If all the configuration is done, the application is ready to work and transmit your data encrypted via SSL/TLS.
 
